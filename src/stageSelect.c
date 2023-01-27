@@ -33,7 +33,7 @@ void stageSelect_init(stageSelect* this) {
 
     if ((ptr_fade_isFading() == 0) && (ptr_DMAMgr->DMAChunkMgr != 0)) {
         ptr_fade_setSettings(FADE_IN, 30, 0, 0, 0);
-        D_80383AB8.cutscene_mode = 0;
+        D_80383AB8.cutscene_flags = 0;
         ptr_FUN_80000c28(2, &D_801CC000, 0x40000, 0x4000);
         this->field44_0x58 = 0;
         this->assets_file = ptr_FUN_80000d80(2, 0x30000);
@@ -198,11 +198,11 @@ void stageSelect_warpToStage(stageSelect* this) {
             i++;
         } while (i < 16);
         D_80383AB8.field25453_0x644c = 0;
-        D_80383AB8.cutscene_mode &= ~0x1;
+        D_80383AB8.cutscene_flags &= ~0x1;
         D_80383AB8.field25313_0x63c0 = 0;
         switch (this->current_option) {
             case FOREST:
-                D_80383AB8.field25445_0x6444 = 60;
+                D_80383AB8.entrance_cutscene = 60;
                 D_80383AB8.map_fade_out_time = 30;
                 D_80383AB8.map_fade_in_time = 30;
                 D_80383AB8.map_ID = MORI;
@@ -212,7 +212,7 @@ void stageSelect_warpToStage(stageSelect* this) {
                 D_80383AB8.map_fade_in_color.B = 0;
                 break;
             case INSIDE_OF_RAMPART:
-                D_80383AB8.field25445_0x6444 = 4;
+                D_80383AB8.entrance_cutscene = 4;
                 D_80383AB8.map_ID = TOUOKUJI;
                 D_80383AB8.map_fade_out_time = 30;
                 D_80383AB8.map_fade_in_time = 30;
@@ -222,8 +222,8 @@ void stageSelect_warpToStage(stageSelect* this) {
                 D_80383AB8.map_fade_in_color.B = 0;
                 break;
             case COURTYARD:
-                D_80383AB8.cutscene_mode |= 0x10;
-                D_80383AB8.field25445_0x6444 = 9;
+                D_80383AB8.cutscene_flags |= 0x10;
+                D_80383AB8.entrance_cutscene = 9;
                 D_80383AB8.map_ID = NAKANIWA;
                 D_80383AB8.map_fade_out_time = 30;
                 D_80383AB8.map_fade_in_time = 30;

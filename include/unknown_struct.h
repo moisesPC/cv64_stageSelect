@@ -133,8 +133,8 @@ typedef struct {
     u8 field25442_0x6441;
     u8 field25443_0x6442;
     u8 field25444_0x6443;
-    s32 field25445_0x6444;	        // 80389efc
-    u32 cutscene_mode;
+    s32 entrance_cutscene;	        // 80389efc
+    u32 cutscene_flags;
     s32 field25453_0x644c;			// 80389f04
     u8 field25457_0x6450;
     u8 field25458_0x6451;
