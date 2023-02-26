@@ -107,7 +107,7 @@ void stageSelect_initGraphics(stageSelect* this);        // 8012a688
 void stageSelect_initMenuButton(stageSelect* this);      // 8012a904
 void stageSelect_moveButton(stageSelect* this);          // 8012aa60
 void stageSelect_warpToStage(stageSelect* this);         // 8012ac04
-void stageSelect_closeTextboxes(stageSelect* this);            // 8012aea0
+void stageSelect_closeTextboxes(stageSelect* this);      // 8012aea0
 extern void FUN_8000e860(void*);                         // 8000e860
 
 // 8016ca5c
