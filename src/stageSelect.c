@@ -109,7 +109,7 @@ void stageSelect_initMenuButton(stageSelect* this) {
     
     if (ptr_fade_isFading() == 0) {
         for (this->text_ID = 0; this->text_ID < 9; this->text_ID++) {
-            if ((textbox_array[this->text_ID]->flags & 0x40000000) == 0) {
+            if ((textbox_array[this->text_ID]->flags & TEXTBOX_IS_ACTIVE) == 0) {
                 return;
             }
         }
@@ -173,7 +173,7 @@ void stageSelect_warpToStage(stageSelect* this) {
     void (*ptr_goToNextFunc)(s8* functionLoadMgr, s16* functionLoadMgr_ID) = goToNextFunc;
     
     if ((button->flags & PRESSED_DOWN) >> 0xE != 0) {
-        stageSelect_8012aea0(this);
+        stageSelect_closeTextboxes(this);
         D_80383AB8.SaveState_game.map_ID = NONE;
         D_80383AB8.SaveState_game.map_entrance_ID = -1;
         D_80383AB8.SaveState_game.life = 100;
@@ -284,13 +284,13 @@ void stageSelect_warpToStage(stageSelect* this) {
 }
 
 // 0x8012aea0
-void stageSelect_8012aea0(stageSelect* this) {
+void stageSelect_closeTextboxes(stageSelect* this) {
     textbox** textbox_array = this->textboxes;
     void (*ptr_func_80000C78)(s32 param_1) = func_80000C78;
 
     this->menuButton->flags |= 0x300;
     for (this->text_ID = 0; this->text_ID < 9; this->text_ID++) {
-        textbox_array[this->text_ID]->flags |= 0x4000000;
+        textbox_array[this->text_ID]->flags |= CLOSE_TEXTBOX;
     }
     ptr_func_80000C78(2);
 }
