@@ -13,4 +13,9 @@ typedef unsigned char       u8;
 typedef float  f32;
 typedef double f64;
 
+#define NULL  0
+#define NPTR  0
+#define FALSE 0
+#define TRUE  1
+
 #endif // _N64TYPES_H_

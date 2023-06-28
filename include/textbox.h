@@ -73,10 +73,10 @@ typedef struct {
 } textbox;
 
 extern textbox* textbox_create(void* parent_module, void* param_2, u32 flags);
-extern void textbox_setDimensions(textbox* this, s8 height, s16 width, u8 param_4, u8 character_spacing);
-extern void textbox_setPos(textbox* this, u16 text_X_pos, u16 text_Y_pos, s32 unused);
-extern void textbox_setMessagePtr(textbox* this, u16* text, s32 param_3, s16 param_4);
-extern void textbox_8012cd54 (textbox* this, u32 param_2, u8 param_3, u8 param_4);
+extern void textbox_setDimensions(textbox* self, s8 height, s16 width, u8 param_4, u8 character_spacing);
+extern void textbox_setPos(textbox* self, u16 text_X_pos, u16 text_Y_pos, s32 unused);
+extern void textbox_setMessagePtr(textbox* self, u16* text, s32 param_3, s16 param_4);
+extern void textbox_8012cd54 (textbox* self, u32 param_2, u8 param_3, u8 param_4);
 extern void* text_getMessageFromPool (u16* message_pool_base_ptr, s32 id);
 extern void func_80040570();
 

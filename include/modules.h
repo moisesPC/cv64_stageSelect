@@ -6,15 +6,16 @@
 typedef struct {
     u8 timer;                // Could also be number of accesses to function
     u8 function;             // Function ID
-} functionLoadMgr;           // Size = 0x2
+} functionInfo;              // Size = 0x2
 
-struct ModuleHeader{
+struct ModuleHeader {
     s16 ID;
-    s16 field_0x02;
-    s32 field_0x04;
-    functionLoadMgr current_function[3];
-    s16 functionLoadMgr_ID;
-    void* a_function_ptr;
+    s16 flags;
+    s16 field_0x04;
+    s16 field_0x06;
+    functionInfo current_function[3];
+    s16 functionInfo_ID;
+    void (*destroy)(void*);
     struct ModuleHeader* parent;
     struct ModuleHeader* next;
     struct ModuleHeader* child;
@@ -26,7 +27,7 @@ enum ModuleHeader_flags {
     PARENT_MODULE = 0x8000
 };
 
-extern void goToNextFunc(s8* functionLoadMgr, s16* functionLoadMgr_ID);
+extern void goToNextFunc(u16 current_functionInfo[], s16* functionInfo_ID);
 extern ModuleHeader* module_allocate(s32 ID);
 extern s32 func_8000EE18(ModuleHeader* param_1, ModuleHeader* param_2);
 extern void* modules_file_info[555];

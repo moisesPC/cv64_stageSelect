@@ -62,8 +62,8 @@ typedef struct {
     u8 field40_0x4e;
     u8 field41_0x4f;
     menuButton* menuButton;
-    void* assets_file;
-    void* field44_0x58;
+    void* assets_file_start_ptr;
+    void* assets_file_end_ptr;
     s8 text_ID;
     s8 field46_0x5d;
     u8 field47_0x5e;
@@ -101,17 +101,17 @@ u16 stageSelect_text[190] = {
 	0xFFFF, 0x0000, 0x0000
 };
 
-void stageSelect_calc(stageSelect* this);                // 8012a520
-void stageSelect_init(stageSelect* this);                // 8012a590
-void stageSelect_initGraphics(stageSelect* this);        // 8012a688
-void stageSelect_initMenuButton(stageSelect* this);      // 8012a904
-void stageSelect_moveButton(stageSelect* this);          // 8012aa60
-void stageSelect_warpToStage(stageSelect* this);         // 8012ac04
-void stageSelect_closeTextboxes(stageSelect* this);      // 8012aea0
+void stageSelect_entrypoint(stageSelect* self);                // 8012a520
+void stageSelect_init(stageSelect* self);                // 8012a590
+void stageSelect_initGraphics(stageSelect* self);        // 8012a688
+void stageSelect_initMenuButton(stageSelect* self);      // 8012a904
+void stageSelect_moveButton(stageSelect* self);          // 8012aa60
+void stageSelect_warpToStage(stageSelect* self);         // 8012ac04
+void stageSelect_closeTextboxes(stageSelect* self);      // 8012aea0
 extern void FUN_8000e860(void*);                         // 8000e860
 
 // 8016ca5c
-void (*stageSelect_functions[6])(stageSelect* this) = 
+void (*stageSelect_functions[6])(stageSelect* self) = 
 {
     stageSelect_init,
     stageSelect_initGraphics,

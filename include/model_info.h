@@ -5,8 +5,8 @@
 #include "math.h"
 
 typedef struct {
-    u16 field0_0x0;
-    u16 field1_0x2;
+    u16 type;
+    u16 flags;
     void* field2_0x4;
     u8 field3_0x8;
     u8 field4_0x9;
@@ -120,8 +120,12 @@ typedef struct {
     u8 field112_0xa7;
 } model_info;
 
+enum model_info_types {
+    HUD_ELEMENT = 0x10
+};
+
 extern model_info* D_8009B444;
-extern model_info* D_8009B450;
-extern model_info* func_80004E68(u16 param_1, model_info* param_2);
+extern model_info* HUD_camera;
+extern model_info* modelInfo_createRootNode(u16 param_1, model_info* param_2);
 
 #endif
